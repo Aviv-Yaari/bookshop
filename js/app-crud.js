@@ -2,7 +2,7 @@
 function onBookAdd(ev, elForm) {
   ev.preventDefault();
   const title = ev.target.title.value;
-  const price = ev.target.price.value;
+  const price = +ev.target.price.value;
   const imgUrl = ev.target.imgUrl.value;
   if (!title || !price) return;
   service.createBook(title, price, imgUrl);

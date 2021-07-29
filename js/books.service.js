@@ -46,6 +46,7 @@ function _getBookIndex(id) {
 }
 
 function sortByKey(key) {
+  debugger;
   gBooks.sort((a, b) => (a[key] < b[key] ? gSortDirection : gSortDirection * -1));
   gSortDirection = gSortDirection * -1;
 }
