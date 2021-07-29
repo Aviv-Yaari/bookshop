@@ -1,22 +1,57 @@
+@import 'add-book.css';
 @import 'books-grid.css';
+@import 'book-modal.css';
 html {
     font-family: "Segoe UI";
 }
 
+body {
+    margin: 0 10px;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.main-content {
+    flex-grow: 1;
+}
+
 header {
     color: #764ABC;
+    display: flex;
+}
+
+header h1 {
+    margin-right: 55px;
+}
+
+footer {
+    background-color: gainsboro;
+    padding-left: 15px;
 }
 
 .hidden {
     display: none;
 }
 
-.create-form {
-    margin-bottom: 25px;
-    padding: 25px 10px;
-    background-color: gainsboro;
+button {
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
 }
 
-.btn-create {
-    margin: 25px 0;
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 100;
+        transform: translateY(0);
+    }
 }

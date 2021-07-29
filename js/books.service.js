@@ -1,8 +1,16 @@
 const booksStorage = _getBooksFromStorage();
-let gBooks = booksStorage && booksStorage.length ? booksStorage : _createDummyBooks();
+let gBooks = booksStorage && booksStorage.length ? booksStorage : createDummyBooks();
+let gSortDirection = 1;
+let gPage = 0;
+const PAGE_SIZE = 12;
 
-function createBook(title, price) {
-  gBooks.unshift({ id: utils.makeId(), title, price });
+function getBook(id) {
+  return gBooks.find((book) => book.id === id);
+}
+
+function createBook(title, price, imgUrl) {
+  const fixedTitle = title.charAt(0).toUpperCase() + title.slice(1);
+  gBooks.unshift({ id: utils.makeId(), title: fixedTitle, price, imgUrl });
   _saveBooksToStorage();
 }
 
@@ -13,33 +21,32 @@ function deleteBook(id) {
 }
 
 function getAllBooks() {
-  return gBooks;
+  return gBooks.slice(gPage, gPage + PAGE_SIZE);
 }
 
-function updateBookTitle(id, newTitle) {
+function getPagesNum() {
+  return gBooks.length / PAGE_SIZE;
+}
+
+function changePage(diff) {
+  debugger;
+  const newPage = gPage + diff;
+  if (newPage * PAGE_SIZE > gBooks.length || newPage < 0) return;
+  gPage = newPage;
+}
+
+function updateBook(id, cat, newVal) {
   const bookIndex = _getBookIndex(id);
-  gBooks[bookIndex].title = newTitle;
+  gBooks[bookIndex][cat] = newVal;
   _saveBooksToStorage();
 }
-
-function updateBookPrice(id, newPrice) {
-  const bookIndex = _getBookIndex(id);
-  gBooks[bookIndex].price = newPrice;
-  _saveBooksToStorage();
-}
-
 function _getBookIndex(id) {
   return gBooks.findIndex((book) => book.id === id);
 }
 
-function _createDummyBooks() {
-  return [
-    { id: utils.makeId(), title: 'Harry Potter', price: 25.2 },
-    { id: utils.makeId(), title: 'The Book Thief', price: 21.21 },
-    { id: utils.makeId(), title: 'The Secret', price: 54.87 },
-    { id: utils.makeId(), title: 'Percy Jackson', price: 10.02 },
-    { id: utils.makeId(), title: 'Lord of the Rings', price: 8.55 },
-  ];
+function sortByKey(key) {
+  gBooks.sort((a, b) => (a[key] < b[key] ? gSortDirection : gSortDirection * -1));
+  gSortDirection = gSortDirection * -1;
 }
 
 function _saveBooksToStorage() {
@@ -50,4 +57,13 @@ function _getBooksFromStorage() {
   return storage.loadFromStorage('books');
 }
 
-const service = { createBook, getAllBooks, deleteBook, updateBookTitle, updateBookPrice };
+const service = {
+  createBook,
+  getAllBooks,
+  deleteBook,
+  updateBook,
+  getBook,
+  sortByKey,
+  getPagesNum,
+  changePage,
+};

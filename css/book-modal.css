@@ -1,0 +1,42 @@
+.overlay {
+    position: fixed;
+    /* display: none; */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    cursor: pointer;
+    animation: fade-in 0.5s;
+}
+
+.book-modal {
+    margin-top: 10px;
+    background-color: white;
+    max-width: 500px;
+    max-height: 80vh;
+    cursor: default;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.book-modal img {
+    max-width: 50%;
+    max-height: 50%;
+}
+
+.fa-star {
+    cursor: pointer;
+    font-size: xx-large;
+}
+
+.fa-star.checked {
+    color: orange;
+}

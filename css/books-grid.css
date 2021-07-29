@@ -1,11 +1,13 @@
 .books-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 0.5fr 1fr 1fr 0.5fr;
+    text-align: center;
 }
 
 .book-header {
     padding: 10px;
-    background-color: #986cdf52
+    background-color: #986cdf52;
+    cursor: pointer;
     /* background-color: rgba(220, 220, 220, 0.459); */
 }
 
@@ -19,4 +21,10 @@
 
 .book-info {
     padding: 10px;
+}
+
+.book-info:first-child:hover {
+    cursor: pointer;
+    background-color: #4e04c752;
+    transition: background-color 0.3s;
 }

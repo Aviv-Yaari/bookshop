@@ -1,0 +1,32 @@
+.create-form {
+    margin-bottom: 25px;
+    padding: 25px 10px;
+    background-color: #986cdf52;
+    /* opacity: 0; */
+    animation: fade-in 0.5s;
+}
+
+.btn-create {
+    background-color: transparent;
+    font-size: 1rem;
+    color: purple;
+}
+
+.btn-create:hover {
+    background-color: #986cdf52;
+}
+
+.create-form input[name="title"] {
+    height: 40px;
+    width: 300px;
+}
+
+.create-form input[name="price"] {
+    height: 40px;
+    width: 80px;
+}
+
+.create-form input[name="imgUrl"] {
+    height: 40px;
+    width: 200px;
+}

@@ -6,32 +6,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bookshop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body onload="onPageLoad()">
-    <header>
-        <h1>Bookshop</h1>
-    </header>
-    <main>
-        <button class="btn-create" onclick="onCreateClick()">Create a new book</button>
-        <form class="create-form hidden" onsubmit="onBookAdd(event, this)">
-            <input type="text" name="title" placeholder="Title">
-            <input type="number" name="price" placeholder="Price">
-            <button type="submit">Add</button>
-        </form>
-        <section class="panel">
-        </section>
-        <section class="books-container">
-        </section>
-    </main>
-    <footer>
-        <p>Coffeerights!</p>
-    </footer>
-    <script src="js/utils.service.js"></script>
+    <div class="overlay hidden" onclick="onModalExit()">
+        <div class="book-modal" onclick="onBookModalClick(event)">
+            <h1 class="modal-title">Book Title</h1>
+            <img>
+            <h3 class="modal-price">Price</h3>
+            <div class="modal-rating">
+                <span onclick="onRate(1)" data-star:1 class="fa fa-star"></span>
+                <span onclick="onRate(2)" data-star:2 class="fa fa-star"></span>
+                <span onclick="onRate(3)" data-star:3 class="fa fa-star"></span>
+                <span onclick="onRate(4)" data-star:4 class="fa fa-star"></span>
+                <span onclick="onRate(5)" data-star:5 class="fa fa-star"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Bookshop</h1>
+            <button class="btn-create" onclick="onCreateClick()">Create a new book</button>
+        </header>
+        <main class="main-content">
+            <form class="create-form hidden" onsubmit="onBookAdd(event, this)">
+                <input type="text" name="title" placeholder="Title" required>
+                <input type="number" name="price" placeholder="Price" required>
+                <input type="text" name="imgUrl" placeholder="Image url" required>
+                <button type="submit">Add</button>
+            </form>
+            <p>Click on a book id to see more details. Feel free to click and edit titles and prices.</p>
+            <section class="panel">
+
+            </section>
+            <section class="books-container">
+            </section>
+            <section class="pages-container">
+                <button onclick="onPageChange(-1)">BACK</button>
+                <button onclick="onPageChange(1)">FORWARD</button>
+            </section>
+        </main>
+        <footer>
+            <p>Coffeerights!</p>
+        </footer>
+    </div>
+    <script src=" js/utils.service.js"></script>
     <script src="js/localStorage.service.js"></script>
+    <script src="js/create-dummy-books.js"></script>
     <script src="js/books.service.js"></script>
-    <script src="js/app.js"></script>
+    <script src="js/app-crud.js"></script>
+    <script src="js/app-additional.js"></script>
+    <script src="js/app-book-modal.js"></script>
 </body>
 
 </html>
