@@ -1,0 +1,22 @@
+.books-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.book-header {
+    padding: 10px;
+    background-color: #986cdf52
+    /* background-color: rgba(220, 220, 220, 0.459); */
+}
+
+.book-row {
+    display: contents;
+}
+
+.book-row:nth-child(even)>* {
+    background-color: rgba(220, 220, 220, 0.259);
+}
+
+.book-info {
+    padding: 10px;
+}

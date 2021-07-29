@@ -1,0 +1,22 @@
+@import 'books-grid.css';
+html {
+    font-family: "Segoe UI";
+}
+
+header {
+    color: #764ABC;
+}
+
+.hidden {
+    display: none;
+}
+
+.create-form {
+    margin-bottom: 25px;
+    padding: 25px 10px;
+    background-color: gainsboro;
+}
+
+.btn-create {
+    margin: 25px 0;
+}
