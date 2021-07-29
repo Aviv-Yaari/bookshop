@@ -21,18 +21,19 @@ function deleteBook(id) {
 }
 
 function getAllBooks() {
-  return gBooks.slice(gPage, gPage + PAGE_SIZE);
+  return gBooks.slice(gPage * PAGE_SIZE, gPage * PAGE_SIZE + PAGE_SIZE);
 }
 
 function getPagesNum() {
-  return gBooks.length / PAGE_SIZE;
+  return Math.ceil(gBooks.length / PAGE_SIZE);
 }
 
-function changePage(diff) {
-  debugger;
-  const newPage = gPage + diff;
-  if (newPage * PAGE_SIZE > gBooks.length || newPage < 0) return;
-  gPage = newPage;
+function getCurrentPage() {
+  return gPage;
+}
+
+function changePage(pageNum) {
+  gPage = pageNum;
 }
 
 function updateBook(id, cat, newVal) {
@@ -66,4 +67,5 @@ const service = {
   sortByKey,
   getPagesNum,
   changePage,
+  getCurrentPage,
 };

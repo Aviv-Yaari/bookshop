@@ -28,3 +28,7 @@
     background-color: #4e04c752;
     transition: background-color 0.3s;
 }
+
+.pages-container {
+    margin-top: auto;
+}

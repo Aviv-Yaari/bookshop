@@ -140,47 +140,5 @@ function createDummyBooks() {
       rating: 2,
       imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/71v4v2E4oJL.jpg',
     },
-    {
-      id: utils.makeId(),
-      title: 'Lord of the Rings',
-      price: 8.55,
-      rating: 2,
-      imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/71v4v2E4oJL.jpg',
-    },
-    {
-      id: utils.makeId(),
-      title: 'Lord of the Rings',
-      price: 8.55,
-      rating: 2,
-      imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/71v4v2E4oJL.jpg',
-    },
-    {
-      id: utils.makeId(),
-      title: 'Lord of the Rings',
-      price: 8.55,
-      rating: 2,
-      imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/71v4v2E4oJL.jpg',
-    },
-    {
-      id: utils.makeId(),
-      title: 'Lord of the Rings',
-      price: 8.55,
-      rating: 2,
-      imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/71v4v2E4oJL.jpg',
-    },
-    {
-      id: utils.makeId(),
-      title: 'Lord of the Rings',
-      price: 8.55,
-      rating: 2,
-      imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/71v4v2E4oJL.jpg',
-    },
-    {
-      id: utils.makeId(),
-      title: 'Lord of the Rings',
-      price: 8.55,
-      rating: 2,
-      imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/71v4v2E4oJL.jpg',
-    },
   ];
 }

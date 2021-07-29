@@ -18,6 +18,8 @@ body {
 
 .main-content {
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
@@ -43,6 +45,14 @@ button {
     border: none;
     cursor: pointer;
     margin: 5px;
+}
+
+button:hover {
+    background-color: rgb(185, 185, 185);
+}
+
+button.clicked {
+    background-color: rgb(185, 185, 185);
 }
 
 @keyframes fade-in {

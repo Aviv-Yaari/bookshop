@@ -47,19 +47,23 @@ function renderBooks() {
   });
   strHTML += booksHTML.join('');
   elContainer.innerHTML = strHTML;
+  renderPageButtons();
 }
 
-function onPageChange(diff) {
-  service.changePage(diff);
+function onPageChange(pageNum, elBtn) {
+  const elPageBtns = document.querySelectorAll('.pages-container button');
+  elPageBtns.forEach((elPageBtn) => elPageBtn.classList.remove('clicked'));
+  elBtn.classList.add('clicked');
+  service.changePage(pageNum);
   renderBooks();
 }
 
-function renderPages() {
-  // const elPagesContainer = document.querySelector('.pages-container');
-  // const pages = new Array(service.getPagesNum());
-  // let strHTML = pages.map(page, index => {
-  //   return '<button></button>'
-  // } )
-  // pages.map()
-  // elPagesContainer.innerHTML;
+function renderPageButtons() {
+  const elPagesContainer = document.querySelector('.pages-container');
+  const pages = [...Array(service.getPagesNum()).keys()];
+  const strHTMLs = pages.map((page, index) => {
+    const clickedClass = index === getCurrentPage() ? 'class ="clicked"' : '';
+    return `<button ${clickedClass}onclick="onPageChange(${page}, this)">${page}</button>`;
+  });
+  elPagesContainer.innerHTML = strHTMLs.join('');
 }
